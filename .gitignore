@@ -1,2 +1,4 @@
 *.pyc
 TODO
+build/
+particlesystem.egg-info/

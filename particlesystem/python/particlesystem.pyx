@@ -16,6 +16,7 @@ from kivy.core.image import Image
 from kivy.properties import (NumericProperty, BooleanProperty, ListProperty, 
 StringProperty, ObjectProperty, BoundedNumericProperty)
 from kivy.vector import Vector
+from kivy.resources import resource_find
 
 
 
@@ -306,6 +307,7 @@ class ParticleSystem(Widget):
     def _parse_config(self, config):
         self._config = parse_xml(config)
         self.texture_path = self._parse_data('texture', 'name')
+        self.texture_path = resource_find(self.texture_path)
         self.texture = Image(self.texture_path).texture
         self.emitter_x_variance = float(self._parse_data(
             'sourcePositionVariance', 'x'))
